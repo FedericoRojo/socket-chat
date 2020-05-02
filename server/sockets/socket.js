@@ -27,19 +27,22 @@ io.on('connection', (client) => {
 
         client.join(data.sala);
 
-        usuarios.agregarPersona( client.id, data.nombre, data.sala );
+        personas = usuarios.agregarPersona( client.id, data.nombre, data.sala );
+
 
         client.broadcast.to(data.sala).emit('listaPersonas', usuarios.getPersonaPorSala(data.sala));
+        client.broadcast.to(data.sala).emit('crearMensaje', crearMensaje( 'Administrador', `${data.nombre} ingresó`));
 
         callback(usuarios.getPersonaPorSala(data.sala));
         
     })
 
-    client.on('crearMensaje', (data) => {
+    client.on('crearMensaje', (data, callback) => {
         let persona = usuarios.getPersona(client.id);
         let mensaje = crearMensaje(persona.nombre, data.mensaje);
         client.broadcast.to(persona.sala).emit('crearMensaje', mensaje);
-        
+
+        callback(mensaje);
     })
 
     client.on('disconnect', () => {
@@ -51,13 +54,22 @@ io.on('connection', (client) => {
 
 
     })
-
     
     client.on('mensajePrivado', data => {
 
         let persona = usuarios.getPersona(client.id);
 
         client.broadcast.to(data.para).emit('mensajePrivado', crearMensaje(persona.nombre, data.mensaje));
+
+    })
+
+    client.on('buscarPersonas', (txtFiltro, callback) => {
+        let resp = usuarios.filtrarPesonasPorTexto(txtFiltro.filtro, txtFiltro.sala);
+        
+        callback(resp);
+    });
+     
+    client.on('mensajePorID', (data, callback) => {
 
     })
 

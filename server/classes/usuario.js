@@ -36,6 +36,19 @@ class Usuarios {
 
         return personaBorrada;
     } 
+
+    filtrarPesonasPorTexto(txtFiltro, sala){
+
+        if (txtFiltro === '') return this.getPersonaPorSala(sala);
+
+        let personasSala = this.getPersonaPorSala(sala);
+
+
+        //let personasFiltradas = personasSala.filter(persona => persona.nombre === txtFiltro);
+
+        let personasFiltradas = personasSala.filter( (persona) => persona.nombre === txtFiltro)
+        return personasFiltradas;
+    } 
     
 }
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Chat</title>
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+        <!-- Page CSS -->
+        <link href="css/pages/chat-app-page.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/chat.css" rel="stylesheet">
+        <link href="css/animate.css" rel="stylesheet">
+    
+        <!-- You can change the theme colors from here -->
+        <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
+    </head>    
+<body class="fix-header single-column card-no-border fix-sidebar">
+    <div id="main-wrapper">
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <div class="row animated fadeIn">
+                    <div class="col-12">
+                        <div class="card m-b-0">
+                            <div class="chat-main-box">
+                                <div class="chat-left-aside">
+                                    <div class="open-panel"><i class="ti-angle-right"></i></div>
+                                            <div class="chat-left-inner">
+                                            
+                                                <ul class="chatonline style-none" id="divUsuariosP"> 
+                                                    <li>
+                                                        <a data-id="' + personas[i].id + '"  href="javascript:void(0)"><img src="assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span> Nombre persona <small class="text-success">online</small></span></a>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                        <!-- .chat-left-panel -->
+                                        <!-- .chat-right-panel -->
+                                        <div class="chat-right-aside">
+                                            <div class="chat-main-header">
+                                                <div class="p-20 b-b">
+                                                    <h3 class="box-title">Chat con <small>Nombre Usuario</small></h3>
+                                        </div>
+                                        <div class="chat-rbox">
+                                            <ul class="chat-list p-20" id="divChatboxP"></ul>
+                                        </div>
+                                        <div class="card-body b-t">
+
+                                            <form id="formEnviarP">
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                     <input autocomplete="off" id="txtMensajeP" placeholder="Escribe tu mensaje aquí" class="form-control b-0" autofocus>
+                                                    </div>
+                                                    <div class="col-4 text-right">
+                                                     <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-paper-plane-o"></i> </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+    
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
